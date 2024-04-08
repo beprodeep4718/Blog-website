@@ -1,0 +1,28 @@
+<div class="author-cont">
+  <h1 class="author-heading">Welcome :-</h1>
+  <p class="author-title">Empower your voice with our dynamic blog content</p>
+</div>
+
+<img
+  src="https://images.pexels.com/photos/3631711/pexels-photo-3631711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  alt="couldn't load"
+  width="500"
+  class="hero-image"
+/>
+
+<section class="blog-cont">
+  <h1>Latest Posts</h1>
+  <ul>
+    <% data.forEach(post => { %>
+    <li>
+      <a href="/read/<%= post._id %>">
+        <span><%= post.title %></span>
+        <span class="blog-date"><%= post.createdAt.toDateString() %></span>
+      </a>
+    </li>
+    <% }) %>
+  </ul>
+  <% if (nextPage != null) { %>
+  <a href="/?page=<%= nextPage %>" class="pagination">&lt; Show old blogs</a>
+  <% } %>
+</section>
